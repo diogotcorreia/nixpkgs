@@ -1,0 +1,12 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index fc99a94..efcaa19 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -3,6 +3,7 @@
+ //! Provides an easy-to-use extension for vector similarity search.
+ #![feature(never_type)]
+ #![feature(alloc_error_hook)]
++#![feature(result_option_inspect)]
+ 
+ mod bgworker;
+ mod datatype;
