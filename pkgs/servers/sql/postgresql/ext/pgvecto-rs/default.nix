@@ -6,6 +6,7 @@
 , fetchCrate
 , fetchFromGitHub
 , nix-update-script
+, nixosTests
 , openssl
 , pkg-config
 , postgresql
@@ -84,7 +85,12 @@ in
   # We need to use features from rust-nightly
   RUSTC_BOOTSTRAP = 1;
 
-  passthru.updateScript = nix-update-script { };
+  passthru = {
+    updateScript = nix-update-script { };
+    tests = {
+      pgvecto-rs = nixosTests.pgvecto-rs;
+    };
+  };
 
   meta = with lib; {
     description =
