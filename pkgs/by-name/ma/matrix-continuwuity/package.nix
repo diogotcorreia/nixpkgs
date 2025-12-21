@@ -89,6 +89,15 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-imfpl+72zlqeEREdTGFG3bsMdPTXe/sb1uGvMC6BGT0=";
 
+  patches = [
+    # Fixes a zero-day security vulnerability
+    # https://fedi.transgender.ing/notes/agj9mne73ias00d8
+    # Cherry-pick of commits b2bead67ac8bc45de9a612578f295e5b7fc6c2b5 and 7fa4fa98628593c1a963f5aa8dbc3657d604b047
+    # but with conflicts resolved for 0.5.0-rc.8.1
+    ./0001-fix-Apply-additional-validation-to-invites.patch
+    ./0002-fix-Also-check-sender-origin.patch
+  ];
+
   nativeBuildInputs = [
     pkg-config
     rustPlatform.bindgenHook
