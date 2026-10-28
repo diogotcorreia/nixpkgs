@@ -22,6 +22,7 @@ buildNpmPackage (finalAttrs: {
     hash = "sha256-9Sq35o1ecsNR28ooZb2m2phFT5CXe930FK6JLb4eMkc=";
   };
 
+  inherit nodejs;
   npmDepsHash = "sha256-aF5HXuPyIn1HZ7gWiJV1ABfJNkTnNqfE5rdG5Dccq/o=";
 
   patches = [
@@ -59,7 +60,7 @@ buildNpmPackage (finalAttrs: {
     description = "Fancy self-hosted monitoring tool";
     mainProgram = "uptime-kuma-server";
     homepage = "https://github.com/louislam/uptime-kuma";
-    changelog = "https://github.com/louislam/uptime-kuma/releases/tag/${finalAttrs.version}";
+    changelog = "https://github.com/louislam/uptime-kuma/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [
       julienmalka
