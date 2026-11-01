@@ -493,6 +493,6 @@ in
     users.groups = mkIf (cfg.group == "immich") { immich = { }; };
   };
   meta = {
-    maintainers = with lib.maintainers; [ jvanbruegge ];
+    inherit (pkgs.immich.meta) maintainers;
   };
 }
